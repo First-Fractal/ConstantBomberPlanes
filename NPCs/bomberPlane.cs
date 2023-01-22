@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Terraria.GameContent.Personalities;
 using Terraria.Utilities;
 using Terraria.Localization;
+using Terraria;
 
 namespace ConstantBomberPlanes.NPCs
 {
@@ -35,7 +36,13 @@ namespace ConstantBomberPlanes.NPCs
 
         public override void AI()
         {
-            NPC.position += new Vector2(6, 0);
+            NPC.position += new Vector2(8, 0);
+
+            //Main.NewText("Jet's X postition " + (NPC.position.X/16).ToString() + " and the max is " + Main.maxTilesX.ToString());
+            if (NPC.position.X/16 > Main.maxTilesX)
+            {
+                NPC.life = 0;
+            }
             base.AI();
         }
 
