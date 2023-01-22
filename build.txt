@@ -1,0 +1,3 @@
+displayName = Constant Bomber Planes
+author = First Fractal
+version = 0.1
