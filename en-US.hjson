@@ -1,0 +1,15 @@
+﻿Mods:
+{
+	ConstantBomberPlanes:
+	{
+		Dialogue: {
+			bomberPlane: {
+				dialogue1: "There is a maniac trying to fly nearby the jet."
+				dialogue2: "Go away. Im trying to bomb in peace."
+				dialogue3: "KA-BOOM! There goes a innocent village."
+				dialogue4: "This is a damage proof jet. Nothing can touch me."
+				dialogue5: "I love bombing innocent people."
+			}
+		}
+	}
+}
