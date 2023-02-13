@@ -1,15 +1,19 @@
-﻿using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
-using Terraria.GameContent.Personalities;
+﻿using Terraria;
+using Terraria.ModLoader;
 using Terraria.Utilities;
 using Terraria.Localization;
-using Terraria;
+using Microsoft.Xna.Framework;
+using ConstantBomberPlanes.Projectiles;
+using Terraria.GameContent.Personalities;
+using Terraria.ID;
 
 namespace ConstantBomberPlanes.NPCs
 {
     [AutoloadHead]
     public class bomberPlane : ModNPC
     {
+        int counter = 0;
+        public int spawnerCounter = 0;
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bomber Jet");
@@ -38,11 +42,24 @@ namespace ConstantBomberPlanes.NPCs
         {
             NPC.position += new Vector2(8, 0);
 
-            //Main.NewText("Jet's X postition " + (NPC.position.X/16).ToString() + " and the max is " + Main.maxTilesX.ToString());
             if (NPC.position.X/16 > Main.maxTilesX)
             {
                 NPC.life = 0;
             }
+
+            counter++;
+            if (counter >= 60)
+            {
+                spawnerCounter++;
+                counter = 0;
+            }
+
+            if (spawnerCounter >= 10)
+            {
+                Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position + new Vector2(0, 100), Vector2.Zero, ModContent.ProjectileType<bomb>(), 0, 0);
+                spawnerCounter = 0;
+            }
+
             base.AI();
         }
 
@@ -59,6 +76,7 @@ namespace ConstantBomberPlanes.NPCs
             chat.Add(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.dialogue3"));
             chat.Add(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.dialogue4"));
             chat.Add(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.dialogue5"));
+            chat.Add(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.dialogue6"));
             return chat;
         }
     }

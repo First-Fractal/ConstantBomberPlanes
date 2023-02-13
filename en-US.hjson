@@ -9,6 +9,8 @@
 				dialogue3: "KA-BOOM! There goes a innocent village."
 				dialogue4: "This is a damage proof jet. Nothing can touch me."
 				dialogue5: "I love bombing innocent people."
+				dialogue6: "It's impossible to get rid of me. I will always be here."
+				SpawnMessage: "A Bomber Jet has flown in to bomb your world."
 			}
 		}
 	}
