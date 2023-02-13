@@ -11,6 +11,42 @@
 				dialogue5: "I love bombing innocent people."
 				dialogue6: "It's impossible to get rid of me. I will always be here."
 				SpawnMessage: "A Bomber Jet has flown in to bomb your world."
+				name: "Bomber Jet"
+			}
+		}
+
+		Config: {
+			Label: Config
+			Header.GeneralOptions: General Options
+
+			PlaneSpawnerCooldown: {
+				Label: Bomber Jet Spawner Cooldown
+				Tooltip: Set how long it will take, in seconds, for the Bomber Jet to spawn in.
+			}
+
+			BombSpawnerCooldown: {
+				Label: Bomb Spawner Duration
+				Tooltip: Set how long it will take, in seconds, for a bomb to spawn out of the jets.
+			}
+
+			RandomBombSpawner: {
+				Label: Random Bomb Spawner Timer?
+				Tooltip: If true, then the previous value will be ingore, and it will pick a random value between the next two values.
+			}
+
+			RandMin: {
+				Label: Random Bomb Spawner Minimum Time
+				Tooltip: The lowest value that the random timer will pick.
+			}
+
+			RandMax: {
+				Label: Random Bomb Spawner Maximum Time
+				Tooltip: The highest value that the random timer will pick.
+			}
+
+			explosionRadius: {
+				Label: Explosion Radius
+				Tooltip: How big the explosive should be.
 			}
 		}
 	}

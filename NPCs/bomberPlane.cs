@@ -14,9 +14,10 @@ namespace ConstantBomberPlanes.NPCs
     {
         int counter = 0;
         public int spawnerCounter = 0;
+        public int timer = 0; 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bomber Jet");
+            DisplayName.SetDefault(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.name"));
             base.SetStaticDefaults();
         }
 
@@ -40,6 +41,14 @@ namespace ConstantBomberPlanes.NPCs
 
         public override void AI()
         {
+            if (ConstantBomberPlanesConfig.Instance.RandomBombSpawner)
+            {
+                timer = Main.rand.Next(ConstantBomberPlanesConfig.Instance.RandMin, ConstantBomberPlanesConfig.Instance.RandMax);
+            } else
+            {
+                timer = ConstantBomberPlanesConfig.Instance.BombSpawnerCooldown;
+            }
+
             NPC.position += new Vector2(8, 0);
 
             if (NPC.position.X/16 > Main.maxTilesX)
@@ -54,7 +63,7 @@ namespace ConstantBomberPlanes.NPCs
                 counter = 0;
             }
 
-            if (spawnerCounter >= 10)
+            if (spawnerCounter >= timer)
             {
                 Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position + new Vector2(0, 100), Vector2.Zero, ModContent.ProjectileType<bomb>(), 0, 0);
                 spawnerCounter = 0;

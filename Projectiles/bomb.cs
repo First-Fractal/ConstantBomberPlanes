@@ -15,6 +15,7 @@ namespace ConstantBomberPlanes.Projectiles
             Projectile.aiStyle = -1;
             Projectile.scale = 1.5f;
             Projectile.ignoreWater = true;
+            Projectile.timeLeft = 999999;
         }
 
         public override void PostAI()
@@ -55,7 +56,7 @@ namespace ConstantBomberPlanes.Projectiles
 
         public override void Kill(int timeLeft)
         {
-            int explosionRadius = 8;
+            int explosionRadius = ConstantBomberPlanesConfig.Instance.explosionRadius;
             int bonusRadius = 6;
 
             int minTileX = (int)(Projectile.position.X / 16f - (float)explosionRadius - bonusRadius);
@@ -87,8 +88,22 @@ namespace ConstantBomberPlanes.Projectiles
                 {
                     Tile tile = Main.tile[x, y];
                     float dis = Vector2.Distance(Projectile.position, new Vector2(x * 16, y * 16))/16f;
-                    Main.NewText(dis);
                     if (dis < explosionRadius) {
+
+                        if (tile.TileType == TileID.BlueDungeonBrick || tile.TileType == TileID.GreenDungeonBrick || tile.TileType == TileID.PinkDungeonBrick
+                            || tile.WallType == WallID.BlueDungeonSlabUnsafe || tile.WallType == WallID.BlueDungeonTileUnsafe || tile.WallType == WallID.BlueDungeonUnsafe
+                            || tile.WallType == WallID.GreenDungeonSlabUnsafe || tile.WallType == WallID.GreenDungeonTileUnsafe || tile.WallType == WallID.GreenDungeonUnsafe
+                            || tile.WallType == WallID.PinkDungeonSlabUnsafe || tile.WallType == WallID.PinkDungeonTileUnsafe || tile.WallType == WallID.PinkDungeonUnsafe
+                            || tile.TileType == TileID.Cobalt || tile.TileType == TileID.Palladium || tile.TileType == TileID.Mythril || tile.TileType == TileID.Orichalcum 
+                            || tile.TileType == TileID.Adamantite || tile.TileType == TileID.Titanium || tile.TileType == TileID.Chlorophyte || tile.TileType == TileID.LihzahrdBrick
+                            || tile.TileType == TileID.DemonAltar || tile.TileType == TileID.LihzahrdAltar || tile.TileType == 21 || tile.TileType == 467 || tile.TileType == 468 
+                            || tile.TileType == TileID.Dressers || tile.TileType == 470 || tile.TileType == 475 || tile.TileType == 395
+                        ) { break; }
+
+                        if ((Main.hardMode == false) && (tile.TileType == TileID.Meteorite || tile.TileType == TileID.Hellstone || tile.TileType == TileID.Hellforge)) { break; }
+
+                        if (NPC.downedGolemBoss == false && tile.TileType == TileID.Traps) { break; }
+
                         bool hadLiquid = tile.LiquidAmount != 0;
                         if (hadLiquid == false)
                         {
