@@ -56,6 +56,7 @@ namespace ConstantBomberPlanes.Projectiles
 
         public override void Kill(int timeLeft)
         {
+            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, ProjectileID.Explosives, Projectile.damage, 20);
             int explosionRadius = ConstantBomberPlanesConfig.Instance.explosionRadius;
             int bonusRadius = 6;
 
@@ -113,8 +114,6 @@ namespace ConstantBomberPlanes.Projectiles
                     }
                 }
             }
-
-            Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, ProjectileID.Explosives, Projectile.damage, 20);
         }
     }
 }

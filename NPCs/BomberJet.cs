@@ -9,15 +9,15 @@ using Terraria.ID;
 
 namespace ConstantBomberPlanes.NPCs
 {
-    [AutoloadHead]
-    public class bomberPlane : ModNPC
+    [AutoloadBossHead]
+    public class BomberJet : ModNPC
     {
         int counter = 0;
         public int spawnerCounter = 0;
         public int timer = 0; 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.name"));
+            //DisplayName.SetDefault(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.name"));
             base.SetStaticDefaults();
         }
 
@@ -28,7 +28,7 @@ namespace ConstantBomberPlanes.NPCs
             NPC.knockBackResist = 1;
             NPC.lifeMax = 1;
             NPC.friendly = true;
-            NPC.townNPC= true;
+            NPC.townNPC = true;
             NPC.immortal = true;
             NPC.noGravity = true;
             NPC.aiStyle = -1;

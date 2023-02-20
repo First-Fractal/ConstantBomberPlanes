@@ -1,17 +1,16 @@
-﻿Mods:
-{
-	ConstantBomberPlanes:
-	{
+
+Mods: {
+	ConstantBomberPlanes: {
 		Dialogue: {
 			bomberPlane: {
-				dialogue1: "There is a maniac trying to fly nearby the jet."
-				dialogue2: "Go away. Im trying to bomb in peace."
-				dialogue3: "KA-BOOM! There goes a innocent village."
-				dialogue4: "This is a damage proof jet. Nothing can touch me."
-				dialogue5: "I love bombing innocent people."
-				dialogue6: "It's impossible to get rid of me. I will always be here."
-				SpawnMessage: "A Bomber Jet has flown in to bomb your world."
-				name: "Bomber Jet"
+				dialogue1: There is a maniac trying to fly nearby the jet.
+				dialogue2: Go away. Im trying to bomb in peace.
+				dialogue3: KA-BOOM! There goes a innocent village.
+				dialogue4: This is a damage proof jet. Nothing can touch me.
+				dialogue5: I love bombing innocent people.
+				dialogue6: It's impossible to get rid of me. I will always be here.
+				SpawnMessage: A Bomber Jet has flown in to bomb your world.
+				name: Bomber Jet
 			}
 		}
 
@@ -49,5 +48,12 @@
 				Tooltip: How big the explosive should be.
 			}
 		}
+
+		NPCs: {
+			bomberPlane.DisplayName: bomber Plane
+			BomberJet.DisplayName: Bomber Jet
+		}
+
+		Projectiles.bomb.DisplayName: bomb
 	}
 }

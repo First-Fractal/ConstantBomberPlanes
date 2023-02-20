@@ -43,7 +43,7 @@ namespace ConstantBomberPlanes
             {
                 ConstantBomberPlanes CBP = new ConstantBomberPlanes();
                 CBP.Talk(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.SpawnMessage"), new Color(0f, 220f, 255f));
-                NPC.NewNPC(Main.player[0].GetSource_FromThis(), 0, (Main.maxTilesY / 16) + Main.maxTilesY, ModContent.NPCType<bomberPlane>());
+                NPC.NewNPC(Main.player[0].GetSource_FromThis(), 0, (Main.maxTilesY / 16) + Main.maxTilesY, ModContent.NPCType<BomberJet>());
                 spawnerCounter = 0;
             }
         }
@@ -76,7 +76,7 @@ namespace ConstantBomberPlanes
 
         [Label("$Mods.ConstantBomberPlanes.Config.RandomBombSpawner.Label")]
         [Tooltip("$Mods.ConstantBomberPlanes.Config.RandomBombSpawner.Tooltip")]
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         public bool RandomBombSpawner;
 
         [Label("$Mods.ConstantBomberPlanes.Config.RandMin.Label")]
