@@ -3,7 +3,7 @@ Constant Bomber Jets is a mod that constanly spawns in Bomber Jets that drop bom
 You can configure everything you need to for this mod.
 
 # Credit
-If you are a Terraria Content Creator that is going to use this mod, please give me proper credit by mention that I was the one who made it, and that you link my channel, mod, or website in the description.
+If you are a Terraria Content Creator that is going to use this mod, please give me proper credit by mention that I was the one who made it, and that you link my channel (https://www.youtube.com/@first_fractal), mod, or website (https://firstfractal.com) in the description.
 
 # Steam Workshop
 [Download it here](https://youtu.be/dQw4w9WgXcQ)

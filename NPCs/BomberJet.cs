@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using ConstantBomberPlanes.Projectiles;
 using Terraria.GameContent.Personalities;
 using Terraria.ID;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace ConstantBomberPlanes.NPCs
 {
@@ -17,7 +18,6 @@ namespace ConstantBomberPlanes.NPCs
         public int timer = 0; 
         public override void SetStaticDefaults()
         {
-            //DisplayName.SetDefault(Language.GetTextValue("Mods.ConstantBomberPlanes.Dialogue.bomberPlane.name"));
             base.SetStaticDefaults();
         }
 
@@ -29,10 +29,13 @@ namespace ConstantBomberPlanes.NPCs
             NPC.lifeMax = 1;
             NPC.friendly = true;
             NPC.townNPC = true;
+            NPC.boss = false;
             NPC.immortal = true;
             NPC.noGravity = true;
             NPC.aiStyle = -1;
             NPC.noTileCollide = true;
+            NPC.homeless = true;
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
             NPC.Happiness
                 .SetBiomeAffection<ForestBiome>(AffectionLevel.Love)
                 .SetBiomeAffection<UndergroundBiome>(AffectionLevel.Hate);
@@ -41,6 +44,7 @@ namespace ConstantBomberPlanes.NPCs
 
         public override void AI()
         {
+            NPC.homeless = true;
             if (ConstantBomberPlanesConfig.Instance.RandomBombSpawner)
             {
                 timer = Main.rand.Next(ConstantBomberPlanesConfig.Instance.RandMin, ConstantBomberPlanesConfig.Instance.RandMax);
@@ -72,8 +76,18 @@ namespace ConstantBomberPlanes.NPCs
             base.AI();
         }
 
+        public override bool PreDraw(SpriteBatch spriteBatch, Vector2 screenPos, Color drawColor)
+        {
+            NPC.BossBar = Main.BigBossProgressBar.NeverValid;
+            return base.PreDraw(spriteBatch, screenPos, drawColor);
+        }
+
         public override bool? DrawHealthBar(byte hbPosition, ref float scale, ref Vector2 position)
         {
+            NPC.BossBar = null;
+            scale = 0.1f;
+            hbPosition = 0;
+            position = new Vector2(99999, 99999);
             return false;
         }
 

@@ -2,6 +2,7 @@
 using Terraria.ModLoader;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using Terraria.DataStructures;
 
 namespace ConstantBomberPlanes.Projectiles
 {
@@ -11,7 +12,6 @@ namespace ConstantBomberPlanes.Projectiles
         {
             Projectile.width = 20;
             Projectile.height = 22;
-            Projectile.damage = 1000;
             Projectile.aiStyle = -1;
             Projectile.scale = 1.5f;
             Projectile.ignoreWater = true;
@@ -114,6 +114,16 @@ namespace ConstantBomberPlanes.Projectiles
                     }
                 }
             }
+
+            foreach (Player player in Main.player)
+            {
+                float dis = Vector2.Distance(player.position, Projectile.position);
+                if (dis <= explosionRadius*16)
+                {
+                    player.Hurt(PlayerDeathReason.ByProjectile(player.whoAmI, Projectile.whoAmI), 99999, -3);
+                }
+            }
+
         }
     }
 }
