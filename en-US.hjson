@@ -1,4 +1,3 @@
-
 Mods: {
 	ConstantBomberPlanes: {
 		Dialogue: {
@@ -51,9 +50,61 @@ Mods: {
 
 		NPCs: {
 			bomberPlane.DisplayName: bomber Plane
-			BomberJet.DisplayName: Bomber Jet
+
+			BomberJet: {
+				DisplayName: Bomber Jet
+
+				TownNPCMood: {
+					Content: I am content.
+					NoHome: I hate not having a home.
+					FarFromHome: I am too far from home.
+					LoveSpace: I love having so much space.
+					DislikeCrowded: I dislike how crowded I am.
+					HateCrowded: I hate how crowded I am.
+					LoveBiome: I love {BiomeName}.
+					HateBiome: I hate {BiomeName}.
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
 		}
 
 		Projectiles.bomb.DisplayName: bomb
+
+		Configs: {
+			ConstantBomberPlanesConfig: {
+				DisplayName: "{$Mods.ConstantBomberPlanes.Config.Label}"
+
+				PlaneSpawnerCooldown: {
+					Label: "{$Mods.ConstantBomberPlanes.Config.PlaneSpawnerCooldown.Label}"
+					Tooltip: "{$Mods.ConstantBomberPlanes.Config.PlaneSpawnerCooldown.Tooltip}"
+				}
+
+				BombSpawnerCooldown: {
+					Label: "{$Mods.ConstantBomberPlanes.Config.BombSpawnerCooldown.Label}"
+					Tooltip: "{$Mods.ConstantBomberPlanes.Config.BombSpawnerCooldown.Tooltip}"
+				}
+
+				RandomBombSpawner: {
+					Label: "{$Mods.ConstantBomberPlanes.Config.RandomBombSpawner.Label}"
+					Tooltip: "{$Mods.ConstantBomberPlanes.Config.RandomBombSpawner.Tooltip}"
+				}
+
+				RandMin: {
+					Label: "{$Mods.ConstantBomberPlanes.Config.RandMin.Label}"
+					Tooltip: "{$Mods.ConstantBomberPlanes.Config.RandMin.Tooltip}"
+				}
+
+				RandMax: {
+					Label: "{$Mods.ConstantBomberPlanes.Config.RandMax.Label}"
+					Tooltip: "{$Mods.ConstantBomberPlanes.Config.RandMax.Tooltip}"
+				}
+
+				explosionRadius: {
+					Label: "{$Mods.ConstantBomberPlanes.Config.explosionRadius.Label}"
+					Tooltip: "{$Mods.ConstantBomberPlanes.Config.explosionRadius.Tooltip}"
+				}
+			}
+		}
 	}
 }

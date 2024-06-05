@@ -33,19 +33,19 @@ namespace ConstantBomberPlanes.Projectiles
             return base.CanHitNPC(target);
         }
 
-        public override void OnHitNPC(NPC target, int damage, float knockback, bool crit)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
             if (target.type != Projectile.owner)
             {
                 Projectile.Kill();
             }
-            base.OnHitNPC(target, damage, knockback, crit);
+            base.OnHitNPC(target, hit, damageDone);
         }
 
-        public override void OnHitPlayer(Player target, int damage, bool crit)
+        public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
             Projectile.Kill();
-            base.OnHitPlayer(target, damage, crit);
+            base.OnHitPlayer(target, info);
         }
 
         public override bool OnTileCollide(Vector2 oldVelocity)
@@ -54,7 +54,7 @@ namespace ConstantBomberPlanes.Projectiles
             return base.OnTileCollide(oldVelocity);
         }
 
-        public override void Kill(int timeLeft)
+        public override void OnKill(int timeLeft)
         {
             Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero, ProjectileID.Explosives, Projectile.damage, 20);
             int explosionRadius = ConstantBomberPlanesConfig.Instance.explosionRadius;
