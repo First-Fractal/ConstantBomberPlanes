@@ -72,7 +72,7 @@ Mods: {
 		Projectiles.bomb.DisplayName: bomb
 
 		Configs: {
-			ConstantBomberPlanesConfig: {
+			CBPconfig: {
 				DisplayName: "{$Mods.ConstantBomberPlanes.Config.Label}"
 
 				PlaneSpawnerCooldown: {
