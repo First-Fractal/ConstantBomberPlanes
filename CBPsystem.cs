@@ -9,11 +9,15 @@ namespace ConstantBomberPlanes
     public class CBPsystem : ModSystem
     {
         //variables for the bomber plane spawning in cooldown
-        int counter = 0;
+        int planeCooldown = 0;
+        int planeCooldownMax = ffFunc.TimeToTick(CBPconfig.Instance.PlaneSpawnerCooldown);
 
         //function for spawning in the plane
         void PlaneSpawner()
         {
+            //update the max cooldown incase it got change in the config
+            planeCooldownMax = ffFunc.TimeToTick(CBPconfig.Instance.PlaneSpawnerCooldown);
+
             //spawn in the new bomber plane
             NPC.NewNPC(Main.player[0].GetSource_FromThis(), 0, (Main.maxTilesY / 16) + Main.maxTilesY, 
                 ModContent.NPCType<BomberJet>());
@@ -28,7 +32,7 @@ namespace ConstantBomberPlanes
         public override void PostUpdateEverything()
         {
             //make a bomber plane spawn in when it's off cooldown
-            ffFunc.CooldownSystem(ref counter, ref CBPconfig.Instance.PlaneSpawnerCooldown, PlaneSpawner);
+            ffFunc.CooldownSystem(ref planeCooldown, ref planeCooldownMax, PlaneSpawner);
             base.PostUpdateEverything();
         }
     }

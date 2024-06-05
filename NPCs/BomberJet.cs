@@ -56,7 +56,7 @@ namespace ConstantBomberPlanes.NPCs
         //function to spawn in a bomb
         void SpawnBomb()
         {
-            Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position + new Vector2(0, 100), 
+            Projectile.NewProjectile(NPC.GetSource_FromAI(), NPC.position + new Vector2(0, NPC.height), 
                 Vector2.Zero, ModContent.ProjectileType<Bomb>(), 0, 0);
         }
 
@@ -68,10 +68,10 @@ namespace ConstantBomberPlanes.NPCs
             //set the max time for the bomb to spawn in
             if (CBPconfig.Instance.RandomBombSpawner)
             {
-                bombCooldownMax = Main.rand.Next(CBPconfig.Instance.RandMin, CBPconfig.Instance.RandMax);
+                bombCooldownMax = ffFunc.TimeToTick(Main.rand.Next(CBPconfig.Instance.RandMin, CBPconfig.Instance.RandMax));
             } else
             {
-                bombCooldownMax = CBPconfig.Instance.BombSpawnerCooldown;
+                bombCooldownMax = ffFunc.TimeToTick(CBPconfig.Instance.BombSpawnerCooldown);
             }
 
             //slowly move the plane to the right side of the world

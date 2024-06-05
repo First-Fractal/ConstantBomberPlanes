@@ -69,7 +69,10 @@ Mods: {
 			}
 		}
 
-		Projectiles.bomb.DisplayName: bomb
+		Projectiles: {
+			bomb.DisplayName: Bomb
+			Bomb.DisplayName: Bomb
+		}
 
 		Configs: {
 			CBPconfig: {

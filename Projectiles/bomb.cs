@@ -20,7 +20,7 @@ namespace ConstantBomberPlanes.Projectiles
 
             //make it bigger and last for a while
             Projectile.scale = 1.5f;
-            Projectile.timeLeft = ffFunc.TimeToTick(days: 1);
+            Projectile.timeLeft = ffFunc.TimeToTick(hours: 1);
         }
 
         //make it fall down into the earth 
