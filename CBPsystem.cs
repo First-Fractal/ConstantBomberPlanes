@@ -10,13 +10,13 @@ namespace ConstantBomberPlanes
     {
         //variables for the bomber plane spawning in cooldown
         int planeCooldown = 0;
-        int planeCooldownMax = ffFunc.TimeToTick(CBPconfig.Instance.PlaneSpawnerCooldown);
+        int planeCooldownMax = ffFunc.TimeToTick(mins: CBPconfig.Instance.PlaneSpawnerCooldown);
 
         //function for spawning in the plane
         void PlaneSpawner()
         {
             //update the max cooldown incase it got change in the config
-            planeCooldownMax = ffFunc.TimeToTick(CBPconfig.Instance.PlaneSpawnerCooldown);
+            planeCooldownMax = ffFunc.TimeToTick(mins: CBPconfig.Instance.PlaneSpawnerCooldown);
 
             //spawn in the new bomber plane
             NPC.NewNPC(Main.player[0].GetSource_FromThis(), 0, (Main.maxTilesY / 16) + Main.maxTilesY, 

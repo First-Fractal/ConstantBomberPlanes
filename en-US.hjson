@@ -19,7 +19,7 @@ Mods: {
 
 			PlaneSpawnerCooldown: {
 				Label: Bomber Jet Spawner Cooldown
-				Tooltip: Set how long it will take, in seconds, for the Bomber Jet to spawn in.
+				Tooltip: Set how long it will take, in minutes, for the Bomber Jet to spawn in.
 			}
 
 			BombSpawnerCooldown: {
