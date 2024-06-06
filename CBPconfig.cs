@@ -10,7 +10,7 @@ namespace ConstantBomberPlanes
 
         [Header("$Mods.ConstantBomberPlanes.Config.Header.GeneralOptions")]
 
-        [DefaultValue(60)]
+        [DefaultValue(5)]
         public int PlaneSpawnerCooldown;
 
         [DefaultValue(10)]
